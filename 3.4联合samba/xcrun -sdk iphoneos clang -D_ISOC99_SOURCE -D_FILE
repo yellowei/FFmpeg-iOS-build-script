@@ -1,0 +1,11 @@
+xcrun -sdk iphoneos clang -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I$(SRC_PATH)/compat/dispatch_semaphore -DPIC -arch arm64 -mios-version-min=8.0 -fembed-bitcode -std=c11 -fomit-frame-pointer -fPIC -pthread -I/usr/local/Cellar/smbclient/include -L/usr/local/Cellar/smbclient/lib  -c -o ./test.o ./test.c
+
+xcrun -sdk iphoneos clang -arch arm64 -mios-version-min=8.0 -Wl,-dynamic,-search_paths_first -I/usr/local/Cellar/smbclient/include -L/usr/local/Cellar/smbclient/lib -o ./test1 ./test.o -lsmbclient -ltalloc -ltdb -ltevent -lwbclient -lm -liconv -lresolv -lbz2 -lz -pthread -pthread -framework VideoToolbox -framework CoreImage -framework AVFoundation -framework AudioToolbox -ldl -fembed-bitcode -framework Foundation
+
+
+
+xcrun -sdk iphoneos clang -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -I$(SRC_PATH)/compat/dispatch_semaphore -DPIC -arch arm64 -mios-version-min=6.0 -read_only_relocs suppress -std=c11 -fomit-frame-pointer -fPIC -pthread -I/usr/local/Cellar/smbclient/include -L/usr/local/Cellar/smbclient/lib -c -o ./test.o ./test.c
+
+xcrun -sdk iphoneos clang -arch arm64 -mios-version-min=6.0 -Wl,-dynamic,-search_paths_first -I/usr/local/Cellar/smbclient/include -L/usr/local/Cellar/smbclient/lib -o ./test1 ./test.o -lsmbclient -ltalloc -ltdb -ltevent -lwbclient -lm -lbz2 -lz -pthread -pthread -framework VideoToolbox -framework CoreImage -framework AVFoundation -framework AudioToolbox -ldl -read_only_relocs suppress
+
+xcrun -sdk iphoneos clang -arch arm64 -mios-version-min=8.0 -fembed-bitcode -L/usr/local/Cellar/smbclient/lib -Wl,-dynamic,-search_paths_first -I/usr/local/Cellar/smbclient/include -L/usr/local/Cellar/smbclient/lib -o ./test ./test.o -lsmbclient -ltalloc -ltdb -ltevent -lwbclient -liconv -lz -lresolv -lm -lbz2 -lz -pthread -pthread -framework VideoToolbox -framework CoreImage -framework AVFoundation -framework AudioToolbox -ldl
