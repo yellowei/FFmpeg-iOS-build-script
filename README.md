@@ -84,3 +84,21 @@ Cflags: -I${prefix}/include
 6.开始跑脚本
 
 
+## Build x264 Support
+
+方法同上, 但是3.4.2兼容的x264版本需要下载20171224以及之前的, 20171230不行, 大致如下这些都行
+```
+x264-snapshot-20171008-2245.tar.bz2
+x264-snapshot-20171130-2245.tar.bz2
+x264-snapshot-20171214-2245.tar.bz2
+x264-snapshot-20171224-2245.tar.bz2
+```
+
+
+## Build fdk-aac Support
+
+方法同上
+本例使用的是0
+```
+fdk-aac-0.1.6.zip
+```
